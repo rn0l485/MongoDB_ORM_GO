@@ -9,7 +9,7 @@ import (
 )
 
 const mgoNum int = 3
-const mgoURL string = "mongodb://root:weel99699@192.168.43.113:27017/?connect=direct&compressors=disabled&gssapiServiceName=mongodb"
+const mgoURL string = "MongoURL"
 //var Clients [mgoNum]*mongo.Client
 var clients chan *mongo.Client
 
