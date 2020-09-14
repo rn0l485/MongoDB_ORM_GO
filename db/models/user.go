@@ -24,7 +24,8 @@ type User struct {
 		Path 				string 			`bson:"path" 		json:"path"`
 		UpdateTime 			*time.Time 		`bson:"update_time" json:"update_time"`
 	}									`bson:"photo" 		json:"photo"`
-	Role 				map[string]interface{} 	`bson:"role" 	json:"role"`
+	Role 				map[string]string 	`bson:"role" 	json:"role"`
+	Comments			map[string]string 	`bson:"comments" json:"comments"`
 	CreateTime 			*time.Time 		`bson:"create_time"	json:"create_time"`
 }
 
@@ -38,7 +39,9 @@ type SearchUser struct {
 
 type AddUser struct {
 	Payload 			struct{
-		NewUser 			User 			`bson:"new_user" 	json:"new_user"`
+		Account 			string 			`bson:"account" 	json:"account"`
+		Password 			string 			`bson:"password" 	json:"password"`
+		Comments			map[string]string 	`bson:"comments" json:"comments"`
  	} 									`bson:"payload" 	json:"payload"`
 	Ticket 				string 			`bson:"ticket" 		json:"ticket"`
 }
