@@ -51,8 +51,16 @@ func add(c *gin.Context){
 		return		
 	}
 
+	// for new object
+
+	newUser  :=  models.User{
+		Account 	: payload.Payload.Account,
+		Password 	: payload.Payload.Password,
+		Comments: payload.Payload.Comments,
+	}
+
 	userCollection := mgoC.Database("BASE").Collection("user")
-	_, err = userCollection.InsertOne(context.TODO(), payload.Payload.NewUser)
+	_, err = userCollection.InsertOne(context.TODO(), newUser)
 	if err != nil {
 	    c.AbortWithStatusJSON(
 			http.StatusInternalServerError,
